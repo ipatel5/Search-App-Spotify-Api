@@ -1,0 +1,126 @@
+<div class="search-header">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+
+            <form>
+               <h2 class="v-center">search</h2>
+               <p class="lead">/// Artists</p>
+
+               <div class="input-group">
+                  <input type="text" ng-model="showname" class="form-control input-md"/>
+                  <span class="input-group-btn">
+                     <button
+                        type="button"
+                        class="btn btn-md btn-warning pull-right"
+                        ng-click="searchShow()">Search</button>
+                  </span>
+               </div>
+            </form>
+
+             <div ng-if="aa" class="results-block">
+
+               <div ng-repeat="art in aa">
+
+                   <div ng-repeat="artist in art.items">
+                       <div class="row">
+
+                       <div class="show-name col-md-8"> {{artist.name }}</div>
+                       </div>
+
+                     <div class="row"><div class="col-md-8">
+                    <p ng-if="artist.genres">
+                     <span ng-repeat="g in artist.genres">
+                        {{g}} 
+                        <span ng-if="!$last">|</span>
+                        </span>
+                     </p>
+                     </div>
+                  </div>
+                   
+                 
+                   <div class="row">
+                     <div class="col-md-3">
+                     <div ng-if="!artist.images">
+                     <img ng-src="{{'images/placeholder.png'}}"/>
+                        
+                        </div>
+
+
+                         <div ng-if="artist.images">
+                        <img ng-src="{{artist.images.length ? artist.images[1].url : 'images/placeholder.png'}}"/></div>
+                     </div>
+                  </div>
+                 
+
+
+
+
+                 
+
+                     <!-- <div class="col-md-8">
+                        <div>
+                           <div ng-bind-html="result.show.summary | trustHTML"></div>
+                        </div> -->
+                        <br>
+                        
+
+                        <div>
+                           <button ng-click="showDetails(artist.id);artfimage(artist1.id)">Details</button>
+                       <!--  <hr width="2px"> -->
+                        </div>
+                        
+                     </div>
+
+                  </div>
+
+                  <hr>
+
+               </div>
+              <div ng-if="resultart">
+               <div ng-repeat="x in resultart.items">
+               <h3>{{x.name}}</h3>
+               </div>
+               </div>
+               
+               <div ng-if="albumdetail" class="results-block">
+                <div ng-repeat="album in albumdetail.items ">
+
+
+               <div class="row">
+                     <div class="show-name col-md-8"> {{album.name}} </div>
+                                       
+                </div>
+
+              
+                   <div class="row">
+                     <div class="col-md-3">
+                     
+
+                        <div ng-if="!album.images">
+                     <img ng-src="{{'images/placeholder.png'}}" />
+                     </div>
+                        <div ng-if="album.images">
+                        
+                        <img ng-src="{{album.images.length ? album.images[1].url : 'images/placeholder.png'}}"/>
+
+                        
+                        </div>
+                        </div>
+                        </div>
+</div>
+</div>
+                     </div>
+                  </div>
+                </div>
+               </div>
+
+              
+                 
+
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>
